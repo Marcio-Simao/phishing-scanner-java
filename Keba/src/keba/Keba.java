@@ -38,7 +38,7 @@ public class Keba {
             switch(opcao)
             {
                 case 1:
-                    System.out.println(opcao);
+                    
                 break;
                 case 2:
                 
