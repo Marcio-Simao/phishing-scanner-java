@@ -13,6 +13,11 @@ public class Keba {
     /**
      * @param args the command line arguments
      */
+    
+    static void verHistorico (){
+     
+        System.out.println("Ver Historico");
+    }
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner input = new Scanner(System.in);
@@ -38,7 +43,7 @@ public class Keba {
             switch(opcao)
             {
                 case 1: /*analisarFicheiro();*/ break;
-                case 2: /* verHistorico(); */ break;
+                case 2: verHistorico(); break;
                 case 3: /* gerirPalavras(); */break;
                 case 4: /* gerirListaNegra(); */break;
                 case 5: /* gerarRelatorio(); */ break;
