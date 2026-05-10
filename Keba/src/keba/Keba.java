@@ -37,27 +37,13 @@ public class Keba {
 
             switch(opcao)
             {
-                case 1:
-                    
-                break;
-                case 2:
-                
-                break;
-                case 3:
-                
-                break;
-                case 4:
-                
-                break;
-                case 5:
-                
-                break;
-                case 6:
-                
-                break;
-                case 0:
-                
-                break;
+                case 1: /*analisarFicheiro();*/ break;
+                case 2: /* verHistorico(); */ break;
+                case 3: /* gerirPalavras(); */break;
+                case 4: /* gerirListaNegra(); */break;
+                case 5: /* gerarRelatorio(); */ break;
+                case 6: /* verEstatisticas(); */break;
+                case 0: /* sair(); */break;
                 default:
                     System.out.println("Valor Invalido");
                 break;
