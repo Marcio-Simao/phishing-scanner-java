@@ -38,7 +38,7 @@ public class Keba {
             switch(opcao)
             {
                 case 1:
-                
+                    System.out.println(opcao);
                 break;
                 case 2:
                 
@@ -62,7 +62,7 @@ public class Keba {
                     System.out.println("Valor Invalido");
                 break;
             }
-        }while(opcao == 0);
+        }while(opcao != 0);
         
     }
     
