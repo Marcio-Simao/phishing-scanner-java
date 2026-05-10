@@ -18,7 +18,8 @@ public class Keba {
      
         System.out.println("Ver Historico");
     }
-    static void gerirPalavras(){
+    static void gerirPalavras(){ 
+       Scanner input = new Scanner(System.in); 
        System.out.println("==============================================");
        System.out.println("KEBA - PALAVRAS SUSPEITAS");
        System.out.println("==============================================");
@@ -28,6 +29,7 @@ public class Keba {
        System.out.println("0. Voltar ao menu principal");
        System.out.println("==============================================");
        System.out.print("Escolha uma opção: ");
+       int opcao = input.nextInt();
         
     }
     
