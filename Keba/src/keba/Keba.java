@@ -83,8 +83,6 @@ public class Keba {
                     System.out.println("Valor Invalido");
                 break;
             }
-        }while(opcao != 0);
-        
-    }
-    
+        }while(opcao != 0);   
+    }   
 }
