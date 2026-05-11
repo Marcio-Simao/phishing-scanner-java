@@ -17,7 +17,7 @@ public class GestorFicheiros {
     
     static void ListarPalavras(){
         Scanner input = new Scanner(System.in);
-        String caminhoArquivo = "dados/palavras_suspeitas.txt";
+        String caminhoArquivo = "/dados/palavras_suspeitas.txt";
         
         System.out.println("\n==============================================");
         System.out.println("      KEBA - LISTA DE PALAVRAS SUSPEITAS      ");
