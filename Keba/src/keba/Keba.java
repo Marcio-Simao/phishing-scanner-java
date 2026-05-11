@@ -46,7 +46,7 @@ public class Keba {
             {
                 case 1: /*analisarFicheiro();*/ break;
                 case 2: verHistorico(); break;
-                case 3: gerirPalavras(); break;
+                case 3: GestorFicheiros.gerirPalavras(); break;
                 case 4: /* gerirListaNegra(); */break;
                 case 5: /* gerarRelatorio(); */ break;
                 case 6: /* verEstatisticas(); */break;
