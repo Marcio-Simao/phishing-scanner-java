@@ -18,6 +18,7 @@ public class Keba {
      
         System.out.println("Ver Historico");
     }
+   
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner input = new Scanner(System.in);
@@ -25,6 +26,7 @@ public class Keba {
         
         do 
         {
+            System.out.println(" ");
             System.out.println("==============================================");
             System.out.println("KEBA - SCANNER DE PHISHING");             
             System.out.println("Menu Principal");                        
@@ -44,7 +46,7 @@ public class Keba {
             {
                 case 1: /*analisarFicheiro();*/ break;
                 case 2: verHistorico(); break;
-                case 3: /* gerirPalavras(); */break;
+                case 3: GestorFicheiros.gerirPalavras(); break;
                 case 4: /* gerirListaNegra(); */break;
                 case 5: /* gerarRelatorio(); */ break;
                 case 6: /* verEstatisticas(); */break;
@@ -53,8 +55,6 @@ public class Keba {
                     System.out.println("Valor Invalido");
                 break;
             }
-        }while(opcao != 0);
-        
-    }
-    
+        }while(opcao != 0);   
+    }   
 }
