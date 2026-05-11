@@ -29,6 +29,7 @@ public class GestorFicheiros {
             int contador = 1;
             
             // linha = leitor.readLine()
+            //Olá mundo
             
             while((linha = leitor.readLine()) != null){
                 String[] partes = linha.split(";");
