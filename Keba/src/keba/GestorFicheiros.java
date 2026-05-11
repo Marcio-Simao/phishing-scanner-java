@@ -13,6 +13,10 @@ import java.io.IOException;
  */
 public class GestorFicheiros {
     
+    static void ListarPalavras(){
+        
+    }
+    
     static void AdicionarPalavra(){
         
         Scanner input = new Scanner(System.in);
@@ -61,7 +65,7 @@ public class GestorFicheiros {
        
             switch(opcao)
                 {
-                    case 1: /*Listar palavras();*/ break;
+                    case 1: ListarPalavras(); break;
                     case 2: AdicionarPalavra(); break;
                     case 3: /*Remover palavra();*/ break;
                     case 0: /* Voltar ao menu principal();*/break;
