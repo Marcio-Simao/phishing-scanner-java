@@ -18,35 +18,7 @@ public class Keba {
      
         System.out.println("Ver Historico");
     }
-    static void gerirPalavras(){ 
-       Scanner input = new Scanner(System.in);
-       int opcao = 0;
-       do{
-            System.out.println(" ");
-            System.out.println("==============================================");
-            System.out.println("KEBA - PALAVRAS SUSPEITAS");
-            System.out.println("==============================================");
-            System.out.println("1. Listar palavras");
-            System.out.println("2. Adicionar palavra");
-            System.out.println("3. Remover palavra");
-            System.out.println("0. Voltar ao menu principal");
-            System.out.println("==============================================");
-            System.out.print("Escolha uma opção: ");
-            opcao = input.nextInt();
-       
-            switch(opcao)
-                {
-                    case 1: /*Listar palavras*/ break;
-                    case 2: /*Adicionar palavra*/ break;
-                    case 3: /*Remover palavra*/ break;
-                    case 0: /* Voltar ao menu principal*/break;
-                    default:
-                        System.out.println("Valor Invalido");
-                    break;
-                }
-            }while(opcao !=0);  
-    }
-    
+   
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner input = new Scanner(System.in);
