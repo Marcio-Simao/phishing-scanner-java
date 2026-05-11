@@ -14,13 +14,28 @@ import java.io.IOException;
 public class GestorFicheiros {
     
     static void ListarPalavras(){
+        Scanner input = new Scanner(System.in);
+        String caminhoArquivo = "C:/Users/LENOVO/Documents/NetBeansProjects/phishing-scanner-java/dados/palavras_suspeitas.txt";
+        
+        System.out.println("\n==============================================");
+        System.out.println("      KEBA - LISTA DE PALAVRAS SUSPEITAS      ");
+        System.out.println("==============================================");
+        
+        try{
+            FileWriter fileWriter = new FileWriter(caminhoArquivo);
+            
+            
+        }catch(IOException erro){
+            
+           System.out.println("Erro ao guardar a palavra: " + erro.getMessage()); 
+        }
         
     }
     
     static void AdicionarPalavra(){
         
         Scanner input = new Scanner(System.in);
-        
+        String caminhoArquivo = "C:/Users/LENOVO/Documents/NetBeansProjects/phishing-scanner-java/dados/palavras_suspeitas.txt";
         
         System.out.print("Digite a palavra suspeita: ");
         String palavra = input.nextLine();
@@ -29,9 +44,7 @@ public class GestorFicheiros {
         int peso = input.nextInt();
         
         try{
-            FileWriter fileWriter = new FileWriter("C:/Users/LENOVO/Documents"
-            + "/NetBeansProjects/phishing-scanner-java/dados/"
-            + "palavras_suspeitas.txt", true);
+            FileWriter fileWriter = new FileWriter(caminhoArquivo, true);
             
             BufferedWriter escritor = new BufferedWriter(fileWriter);
             
