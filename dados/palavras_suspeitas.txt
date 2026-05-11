@@ -1,0 +1,3 @@
+Keba;20
+Kyba;30
+ganhou;20

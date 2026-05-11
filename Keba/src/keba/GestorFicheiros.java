@@ -6,6 +6,7 @@ package keba;
 import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.IOException;
 /**
  *
  * @author LENOVO
@@ -24,15 +25,20 @@ public class GestorFicheiros {
         int peso = input.nextInt();
         
         try{
-            FileWriter fileWriter = new FileWriter("dados/palavras_suspeitas.txt", true);
+            FileWriter fileWriter = new FileWriter("C:/Users/LENOVO/Documents"
+            + "/NetBeansProjects/phishing-scanner-java/dados/"
+            + "palavras_suspeitas.txt", true);
+            
             BufferedWriter escritor = new BufferedWriter(fileWriter);
             
             escritor.write(palavra + ";" + peso);
             escritor.newLine();
             escritor.close();
+            System.out.println("Palavra adicionada com sucesso!");
             
-        }catch{
+        }catch(IOException erro){
             
+           System.out.println("Erro ao guardar a palavra: " + erro.getMessage()); 
         }
         
     }
