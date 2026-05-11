@@ -14,10 +14,9 @@ import java.io.IOException;
  * @author LENOVO
  */
 public class GestorFicheiros {
-    
+    //método listar palavras
     static void ListarPalavras(){
-        Scanner input = new Scanner(System.in);
-        String caminhoArquivo = "dados/palavras_suspeitas.txt";
+        String caminhoArquivo = "dadors/palavras_suspeitas.txt";
         
         System.out.println("\n==============================================");
         System.out.println("      KEBA - LISTA DE PALAVRAS SUSPEITAS      ");
@@ -28,6 +27,8 @@ public class GestorFicheiros {
             BufferedReader leitor = new BufferedReader(fileReader);
             String linha;
             int contador = 1;
+            
+            // linha = leitor.readLine()
             
             while((linha = leitor.readLine()) != null){
                 String[] partes = linha.split(";");

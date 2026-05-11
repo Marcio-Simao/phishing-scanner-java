@@ -3,3 +3,4 @@ Kyba;30
 ganhou;20
 password;25
 .exe;40
+Mario;40
