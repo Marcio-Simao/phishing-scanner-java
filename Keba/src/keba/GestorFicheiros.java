@@ -10,6 +10,10 @@ import java.util.Scanner;
  */
 public class GestorFicheiros {
     
+    static void AdicionarPalavra(){
+        
+    }
+    
     static void gerirPalavras(){ 
        Scanner input = new Scanner(System.in);
        int opcao = 0;
@@ -28,10 +32,10 @@ public class GestorFicheiros {
        
             switch(opcao)
                 {
-                    case 1: /*Listar palavras*/ break;
-                    case 2: /*Adicionar palavra();*/ break;
-                    case 3: /*Remover palavra*/ break;
-                    case 0: /* Voltar ao menu principal*/break;
+                    case 1: /*Listar palavras();*/ break;
+                    case 2: AdicionarPalavra(); break;
+                    case 3: /*Remover palavra();*/ break;
+                    case 0: /* Voltar ao menu principal();*/break;
                     default:
                         System.out.println("Valor Invalido");
                     break;
