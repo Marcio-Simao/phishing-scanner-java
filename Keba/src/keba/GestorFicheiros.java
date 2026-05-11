@@ -13,8 +13,25 @@ import java.io.FileWriter;
 public class GestorFicheiros {
     
     static void AdicionarPalavra(){
-        FileWriter fileWriter = new FileWriter("dados/palavras_suspeitas.txt");
-        BufferedWriter escritor = new BufferedWriter(FileWriter); 
+        
+        Scanner input = new Scanner(System.in);
+        
+        
+        System.out.print("Digite a palavra suspeita: ");
+        String palavra = input.nextLine();
+        
+        System.out.print("Digite o peso (ex: 20, 30, 40): ");
+        int niv = input.nextInt();
+        
+        try{
+            FileWriter fileWriter = new FileWriter("dados/palavras_suspeitas.txt", true);
+            BufferedWriter escritor = new BufferedWriter(fileWriter);
+            
+            
+            
+        }catch{
+            
+        }
         
     }
     
