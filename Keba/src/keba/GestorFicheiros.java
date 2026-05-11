@@ -5,7 +5,9 @@
 package keba;
 import java.util.Scanner;
 import java.io.BufferedWriter;
+import java.io.BufferedReader;
 import java.io.FileWriter;
+import java.io.FileReader;
 import java.io.IOException;
 /**
  *
@@ -22,8 +24,18 @@ public class GestorFicheiros {
         System.out.println("==============================================");
         
         try{
-            FileWriter fileWriter = new FileWriter(caminhoArquivo);
+            FileReader fileReader = new FileReader(caminhoArquivo);
+            BufferedReader leitor = new BufferedReader(fileReader);
+            String linha;
+            int contador = 1;
             
+            while((linha = leitor.readLine()) != null){
+                String[] partes = linha.split(";");
+                String palavra = partes[0];
+                String peso    = partes[1];
+                System.out.println(contador + ". " + palavra + " (peso: " + peso + ")");
+                contador++;
+            }
             
         }catch(IOException erro){
             
