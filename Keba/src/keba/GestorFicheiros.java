@@ -21,13 +21,15 @@ public class GestorFicheiros {
         String palavra = input.nextLine();
         
         System.out.print("Digite o peso (ex: 20, 30, 40): ");
-        int niv = input.nextInt();
+        int peso = input.nextInt();
         
         try{
             FileWriter fileWriter = new FileWriter("dados/palavras_suspeitas.txt", true);
             BufferedWriter escritor = new BufferedWriter(fileWriter);
             
-            
+            escritor.write(palavra + ";" + peso);
+            escritor.newLine();
+            escritor.close();
             
         }catch{
             
