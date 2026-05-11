@@ -4,6 +4,8 @@
  */
 package keba;
 import java.util.Scanner;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 /**
  *
  * @author LENOVO
@@ -11,6 +13,8 @@ import java.util.Scanner;
 public class GestorFicheiros {
     
     static void AdicionarPalavra(){
+        FileWriter fileWriter = new FileWriter("dados/palavras_suspeitas.txt");
+        BufferedWriter escritor = new BufferedWriter(FileWriter); 
         
     }
     
