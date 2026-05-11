@@ -17,7 +17,7 @@ public class GestorFicheiros {
     
     static void ListarPalavras(){
         Scanner input = new Scanner(System.in);
-        String caminhoArquivo = "C:/Users/LENOVO/Documents/NetBeansProjects/phishing-scanner-java/dados/palavras_suspeitas.txt";
+        String caminhoArquivo = "dados/palavras_suspeitas.txt";
         
         System.out.println("\n==============================================");
         System.out.println("      KEBA - LISTA DE PALAVRAS SUSPEITAS      ");
@@ -47,7 +47,7 @@ public class GestorFicheiros {
     static void AdicionarPalavra(){
         
         Scanner input = new Scanner(System.in);
-        String caminhoArquivo = "C:/Users/LENOVO/Documents/NetBeansProjects/phishing-scanner-java/dados/palavras_suspeitas.txt";
+        String caminhoArquivo = "dados/palavras_suspeitas.txt";
         
         System.out.print("Digite a palavra suspeita: ");
         String palavra = input.nextLine();
