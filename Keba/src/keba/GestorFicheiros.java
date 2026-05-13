@@ -27,10 +27,7 @@ public class GestorFicheiros {
             BufferedReader leitor = new BufferedReader(fileReader);
             String linha;
             int contador = 1;
-            
-            // linha = leitor.readLine()
-            //Olá mundo
-            
+           
             while((linha = leitor.readLine()) != null){
                 String[] partes = linha.split(";");
                 String palavra = partes[0];
@@ -72,6 +69,8 @@ public class GestorFicheiros {
            System.out.println("Erro ao guardar a palavra: " + erro.getMessage()); 
         }
         
+    } static void RemoverPalavra(){
+        
     }
     
     static void gerirPalavras(){ 
@@ -94,7 +93,7 @@ public class GestorFicheiros {
                 {
                     case 1: ListarPalavras(); break;
                     case 2: AdicionarPalavra(); break;
-                    case 3: /*Remover palavra();*/ break;
+                    case 3: /*RemoverPalavra();*/ break;
                     case 0: /* Voltar ao menu principal();*/break;
                     default:
                         System.out.println("Valor Invalido");
