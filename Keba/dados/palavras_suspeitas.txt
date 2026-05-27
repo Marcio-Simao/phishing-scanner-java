@@ -2,3 +2,4 @@ ganhou;20
 password;25
 .exe;40
 venceu;20
+Agora;40
