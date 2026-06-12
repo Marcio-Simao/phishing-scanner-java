@@ -9,5 +9,6 @@ package keba;
  *
  */
 public class Email {
+    private String requerete;
 
 }
