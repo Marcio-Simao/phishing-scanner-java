@@ -27,6 +27,11 @@ public class Email {
     
     private ArrayList<String> palavrasEcontradas; //lista das palavras suspeitas
 
+    @Override
+    public String toString() {
+        return "Email{" + "remetente=" + remetente + ", assunto=" + assunto + ", dataEnvio=" + dataEnvio + ", suspeito=" + suspeito + '}';
+    }
+
     public Email(String remetente, String destinatario, String assunto, String corpo, String dataEnvio) {
         this.remetente = remetente;
         this.destinatario = destinatario;
@@ -36,7 +41,7 @@ public class Email {
         this.suspeito = false;
         this.pontuacaoRisco = 0;
         this.palavrasEcontradas = new ArrayList<>();
-    } // Conctrutor adicionado para ficar mais rapido a escrita/criacao de um email.
+    } // Construtor adicionado para ficar mais rapido a escrita/criacao de um email.
 
     public String getRemetente() {
         return remetente;
