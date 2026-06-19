@@ -11,12 +11,39 @@ import java.util.ArrayList;
  */
 public class Email {
 
-    public String getRequerete() {
-        return requerete;
+    private String remetente; //endereco de quem enviou o email
+    
+    private String destinatario; //enderco de quem recebeu
+    
+    private String assunto; // titulo possivelmente suspeito
+    
+    private String corpo; // o texto completo da msg
+    
+    private String dataEnvio; // guarda a data do envio
+    
+    private boolean suspeito; // resultado da analise
+    
+    private int pontuacaoRisco; // pontuacao da analise
+    
+    private ArrayList<String> palavrasEcontradas; //lista das palavras suspeitas
+
+    public Email(String remetente, String destinatario, String assunto, String corpo, String dataEnvio) {
+        this.remetente = remetente;
+        this.destinatario = destinatario;
+        this.assunto = assunto;
+        this.corpo = corpo;
+        this.dataEnvio = dataEnvio;
+        this.suspeito = false;
+        this.pontuacaoRisco = 0;
+        this.palavrasEcontradas = new ArrayList<>();
     }
 
-    public void setRequerete(String requerete) {
-        this.requerete = requerete;
+    public String getRemetente() {
+        return remetente;
+    }
+
+    public void setRemetente(String remetente) {
+        this.remetente = remetente;
     }
 
     public String getDestinatario() {
@@ -68,26 +95,11 @@ public class Email {
     }
 
     public ArrayList<String> getPalavrassEcontradas() {
-        return palavrassEcontradas;
+        return palavrasEcontradas;
     }
 
     public void setPalavrassEcontradas(ArrayList<String> palavrassEcontradas) {
-        this.palavrassEcontradas = palavrassEcontradas;
+        this.palavrasEcontradas = palavrassEcontradas;
     }
-    private String requerete; //endereco de quem enviou o email
-    
-    private String destinatario; //enderco de quem recebeu
-    
-    private String assunto; // titulo possivelmente suspeito
-    
-    private String corpo; // o texto completo da msg
-    
-    private String dataEnvio; // guarda a data do envio
-    
-    private boolean suspeito; // resultado da analise
-    
-    private int pontuacaoRisco; // pontuacao da analise
-    
-    private ArrayList<String> palavrassEcontradas; //lista das palavras suspeitas
 
 }
