@@ -36,7 +36,7 @@ public class Email {
         this.suspeito = false;
         this.pontuacaoRisco = 0;
         this.palavrasEcontradas = new ArrayList<>();
-    }
+    } // Conctrutor adicionado para ficar mais rapido a escrita/criacao de um email.
 
     public String getRemetente() {
         return remetente;
