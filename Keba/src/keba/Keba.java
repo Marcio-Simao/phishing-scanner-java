@@ -7,6 +7,10 @@ public class Keba {
     static void verHistorico (){
         System.out.println("Ver Historico");
     }
+    
+    static void analisarFicheiro() {
+        System.out.println("Em construção...");
+    }
    
     public static void main(String[] args) {
         // TODO code application logic here
