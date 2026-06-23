@@ -56,7 +56,7 @@ public class AnalisadorPhishing {
             int peso = Integer.parseInt(p[1]);
             if (textoCompleto.contains(palavra)) {
                 pontuacao += peso;
-                email.getPalavrassEcontradas().add(p[0]); //getPalavrassEcontradas o que devia ser o correto getPalavrasEncontradas
+                email.getPalavrasEncontradas().add(p[0]); //getPalavrassEcontradas o que devia ser o correto getPalavrasEncontradas
             }
         }
 
