@@ -1,6 +1,7 @@
 package keba;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Keba {
     
@@ -9,7 +10,56 @@ public class Keba {
     }
     
     static void analisarFicheiro() {
-        System.out.println("Em construção...");
+    Scanner input = new Scanner(System.in);
+
+    String caminho = "dados/emails_entrada.txt";
+
+    // 1. Carregar os emails do ficheiro
+    ArrayList<Email> emails = GestorFicheiros.lerEmails(caminho);
+
+    if (emails.isEmpty()) {
+        System.out.println("Nenhum email encontrado no ficheiro!");
+        return;
+    }
+
+    // 2. Carregar palavras suspeitas e dominios negros
+    ArrayList<String[]> palavras = AnalisadorPhishing.carregarPalavras();
+    ArrayList<String> dominios  = AnalisadorPhishing.carregarDominios();
+
+    // 3. Analisar cada email
+    int totalSuspeitos = 0;
+    int totalSeguros   = 0;
+
+    System.out.println("\n==============================================");
+    System.out.println("      KEBA - RESULTADOS DA ANALISE            ");
+    System.out.println("==============================================");
+
+    for (Email email : emails) {
+        int pontuacao = AnalisadorPhishing.analisarEmail(email, palavras, dominios);
+        String nivel  = AnalisadorPhishing.classificarRisco(pontuacao);
+
+        System.out.println("\nDe: "      + email.getRemetente());
+        System.out.println("Assunto: "  + email.getAssunto());
+        System.out.println("Pontuacao: " + pontuacao);
+        System.out.println("Risco: "    + nivel);
+
+        if (email.isSuspeito()) {
+            System.out.println("Estado: SUSPEITO");
+            System.out.println("Palavras encontradas: " + 
+                               email.getPalavrassEcontradas());
+            totalSuspeitos++;
+        } else {
+            System.out.println("Estado: SEGURO");
+            totalSeguros++;
+        }
+        System.out.println("----------------------------------------------");
+    }
+
+    // 4. Mostrar resumo
+    System.out.println("\nTOTAL DE EMAILS: "    + emails.size());
+    System.out.println("EMAILS SUSPEITOS: "     + totalSuspeitos);
+    System.out.println("EMAILS SEGUROS: "       + totalSeguros);
+    System.out.println("==============================================\n");
     }
    
     public static void main(String[] args) {

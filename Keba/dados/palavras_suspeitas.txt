@@ -1,5 +1,38 @@
+urgente;20
+bloqueado;20
+suspenso;20
+expiracao;20
+imediato;20
 ganhou;20
-password;25
-.exe;40
 venceu;20
-Agora;40
+premio;20
+oferta;20
+gratis;20
+password;25
+palavra-passe;25
+cartao de credito;25
+numero de conta;25
+dados bancarios;25
+pin;25
+codigo de seguranca;25
+dados pessoais;25
+confirme;15
+actualize;15
+clique aqui;15
+registe-se;15
+aceda ao link;30
+bit.ly;30
+tinyurl.com;30
+confirme os seus dados;30
+a sua conta foi comprometida;30
+clique aqui para verificar;30
+transfere agora;40
+.exe;40
+.bat;40
+.vbs;40
+conta suspensa;35
+verificar identidade;20
+acção imediata;20
+limited time;20
+sua conta foi bloqueada;35
+introduza os seus dados;30
