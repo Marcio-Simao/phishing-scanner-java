@@ -25,7 +25,7 @@ public class Email {
     
     private int pontuacaoRisco; // pontuacao da analise
     
-    private ArrayList<String> palavrasEcontradas; //lista das palavras suspeitas
+    private ArrayList<String> palavrasEncontradas; //lista das palavras suspeitas
 
     @Override
     public String toString() {
@@ -40,7 +40,7 @@ public class Email {
         this.dataEnvio = dataEnvio;
         this.suspeito = false;
         this.pontuacaoRisco = 0;
-        this.palavrasEcontradas = new ArrayList<>();
+        this.palavrasEncontradas = new ArrayList<>();
     } // Construtor adicionado para ficar mais rapido a escrita/criacao de um email.
 
     public String getRemetente() {
@@ -99,11 +99,11 @@ public class Email {
         this.pontuacaoRisco = pontuacaoRisco;
     }
 
-    public ArrayList<String> getPalavrassEcontradas() {
-        return palavrasEcontradas;
+    public ArrayList<String> getPalavrasEncontradas() {
+        return palavrasEncontradas;
     }
 
-    public void setPalavrassEcontradas(ArrayList<String> palavrassEcontradas) {
-        this.palavrasEcontradas = palavrassEcontradas;
+    public void setPalavrasEncontradas(ArrayList<String> palavrassEcontradas) {
+        this.palavrasEncontradas = palavrassEcontradas;
     }
 }
