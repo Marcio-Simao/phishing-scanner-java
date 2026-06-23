@@ -106,5 +106,4 @@ public class Email {
     public void setPalavrassEcontradas(ArrayList<String> palavrassEcontradas) {
         this.palavrasEcontradas = palavrassEcontradas;
     }
-
 }
