@@ -1,0 +1,69 @@
+---EMAIL---
+DE: seguranca@paypal-verificacao.com
+PARA: cliente@gmail.com
+ASSUNTO: Urgente - A sua conta foi suspensa
+DATA: 2026-05-01 09:30
+CORPO:
+A sua conta PayPal foi suspensa devido a actividade suspeita.
+Clique aqui urgentemente para reactivar a sua conta.
+Confirme os seus dados bancarios e password imediatamente.
+Caso nao confirme nas proximas 24 horas a conta sera encerrada.
+---FIM---
+
+---EMAIL---
+DE: noreply@banco-angola-seguro.net
+PARA: titular@hotmail.com
+ASSUNTO: Actualize os seus dados bancarios agora
+DATA: 2026-05-02 11:15
+CORPO:
+Prezado cliente, o seu cartao de credito foi bloqueado.
+Aceda ao link bit.ly/banco-angola para confirmar os seus dados.
+Digite o seu pin e numero de conta para desbloquear.
+Este processo e urgente e imediato.
+---FIM---
+
+---EMAIL---
+DE: premio@lotaria-mundial.com
+PARA: sortudo@gmail.com
+ASSUNTO: Parabens voce ganhou um premio de 50000 USD
+DATA: 2026-05-03 08:00
+CORPO:
+Voce foi seleccionado para receber um premio especial gratis.
+Clique aqui para reclamar o seu premio agora.
+Envie os seus dados pessoais e numero de conta bancaria.
+Oferta por tempo limitado - expiracao em 24 horas.
+---FIM---
+
+---EMAIL---
+DE: mario.joao@gmail.com
+PARA: marcio.simao@gmail.com
+ASSUNTO: Reuniao de grupo para o projecto
+DATA: 2026-05-04 14:00
+CORPO:
+Ola Marcio, podemos reunir amanha para trabalhar no projecto Keba?
+Precisamos de terminar a opcao 1 esta semana.
+Avisa-me se podes as 14h na biblioteca.
+---FIM---
+
+---EMAIL---
+DE: professora.silvia@isptec.co.ao
+PARA: turma.prog2@isptec.co.ao
+ASSUNTO: Entrega do trabalho pratico - Parte 1
+DATA: 2026-05-05 10:00
+CORPO:
+Bom dia a todos, lembramos que a entrega da primeira parte
+do trabalho pratico e na proxima sexta-feira.
+Coloquem o link do GitHub no documento e submetam no portal.
+Bom trabalho a todos.
+---FIM---
+
+---EMAIL---
+DE: sebastiao.luvumbo@gmail.com
+PARA: grupo.keba@gmail.com
+ASSUNTO: Actualizacao do codigo no GitHub
+DATA: 2026-05-06 16:30
+CORPO:
+Ola equipa, acabei de fazer push da classe RegistoAnalise.
+Podem fazer git pull para ter a versao mais recente.
+Qualquer duvida falem comigo.
+---FIM---
