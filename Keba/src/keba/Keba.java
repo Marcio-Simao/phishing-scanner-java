@@ -1,21 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package keba;
-import java.util.Scanner;
-/**
- *
- * @author LENOVO
- */
-public class Keba {
 
-    /**
-     * @param args the command line arguments
-     */
+import java.util.Scanner;
+
+public class Keba {
     
     static void verHistorico (){
-     
         System.out.println("Ver Historico");
     }
    
@@ -44,7 +33,7 @@ public class Keba {
 
             switch(opcao)
             {
-                case 1: /*analisarFicheiro();*/ break;
+                case 1: analisarFicheiro(); break;
                 case 2: verHistorico(); break;
                 case 3: GestorFicheiros.gerirPalavras(); break;
                 case 4: /* gerirListaNegra(); */break;
