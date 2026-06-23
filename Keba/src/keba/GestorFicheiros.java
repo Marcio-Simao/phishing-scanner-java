@@ -205,8 +205,7 @@ public class GestorFicheiros {
                     lendoCorpo = true;
 
                 } else if (linha.equals("---FIM---")) {
-                    Email email = new Email(remetente, destinatario,
-                                            assunto, corpo.toString().trim(), data);
+                    Email email = new Email(remetente, destinatario,assunto, corpo.toString().trim(), data);
                     emails.add(email);
                     lendoCorpo = false;
 
