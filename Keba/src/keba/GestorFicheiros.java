@@ -168,4 +168,61 @@ public class GestorFicheiros {
             }while(opcao !=0);  
     }
     
+   static ArrayList<Email> lerEmails(String caminho) {
+        ArrayList<Email> emails = new ArrayList<>();
+
+        try {
+            BufferedReader leitor = new BufferedReader(
+                new FileReader(caminho)
+            );
+
+            String linha;
+            String remetente = "", destinatario = "", assunto = "", data = "";
+            StringBuilder corpo = new StringBuilder();
+            boolean lendoCorpo = false;
+
+            while ((linha = leitor.readLine()) != null) {
+
+                if (linha.equals("---EMAIL---")) {
+                    remetente = ""; destinatario = "";
+                    assunto = ""; data = "";
+                    corpo = new StringBuilder();
+                    lendoCorpo = false;
+
+                } else if (linha.startsWith("DE: ")) {
+                    remetente = linha.substring(4);
+
+                } else if (linha.startsWith("PARA: ")) {
+                    destinatario = linha.substring(6);
+
+                } else if (linha.startsWith("ASSUNTO: ")) {
+                    assunto = linha.substring(9);
+
+                } else if (linha.startsWith("DATA: ")) {
+                    data = linha.substring(6);
+
+                } else if (linha.equals("CORPO:")) {
+                    lendoCorpo = true;
+
+                } else if (linha.equals("---FIM---")) {
+                    Email email = new Email(remetente, destinatario,
+                                            assunto, corpo.toString().trim(), data);
+                    emails.add(email);
+                    lendoCorpo = false;
+
+                } else if (lendoCorpo) {
+                    corpo.append(linha).append("\n");
+                }
+            }
+
+            leitor.close();
+            System.out.println(emails.size() + " email(s) carregado(s) com sucesso!");
+
+        } catch (IOException erro) {
+            System.out.println("Erro ao ler o ficheiro: " + erro.getMessage());
+        }
+
+        return emails;
+    }
+
 }
