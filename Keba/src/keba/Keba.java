@@ -46,7 +46,7 @@ public class Keba {
         if (email.isSuspeito()) {
             System.out.println("Estado: SUSPEITO");
             System.out.println("Palavras encontradas: " + 
-                               email.getPalavrassEcontradas());
+                               email.getPalavrasEncontradas());
             totalSuspeitos++;
         } else {
             System.out.println("Estado: SEGURO");
