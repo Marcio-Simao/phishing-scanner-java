@@ -65,6 +65,7 @@ public class AnalisadorPhishing {
         for (String dominio : dominios) {
             if (remetente.contains(dominio.toLowerCase())) {
                 pontuacao += 50;
+                email.getPalavrasEncontradas().add("DOMINIO NA LISTA NEGRA: " + dominio);
                 break;
             }
         }

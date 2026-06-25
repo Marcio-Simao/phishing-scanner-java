@@ -65,7 +65,6 @@ public class GestorFicheiros {
             escritor.newLine();
             escritor.close();
             System.out.println("Palavra adicionada com sucesso!");
-            escritor.close();
             
         }catch(IOException erro){
             
