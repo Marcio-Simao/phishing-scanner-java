@@ -223,5 +223,153 @@ public class GestorFicheiros {
 
         return emails;
     }
+            /*M__Dominios Negros__J*/
+    
 
+    //método listar domínios
+    static void listarDominios(){
+        String caminhoArquivo = "dados/dominios_negros.txt";
+
+        System.out.println("\n==============================================");
+        System.out.println("      KEBA - LISTA NEGRA DE DOMÍNIOS          ");
+        System.out.println("==============================================");
+
+        try{
+            FileReader fileReader = new FileReader(caminhoArquivo);
+            BufferedReader leitor = new BufferedReader(fileReader);
+            String linha;
+            int contador = 1;
+
+            while((linha = leitor.readLine()) != null){
+                System.out.println(contador + ". " + linha);
+                contador++;
+            }
+            leitor.close();
+
+        }catch(IOException erro){
+
+           System.out.println("Erro ao ler a lista de domínios: " + erro.getMessage());
+        }
+
+    }
+
+    static void adicionarDominio(){
+
+        Scanner input = new Scanner(System.in);
+        String caminhoArquivo = "dados/dominios_negros.txt";
+
+        System.out.print("Digite o domínio a bloquear (ex: dominiofalso.com): ");
+        String dominio = input.nextLine();
+
+        try{
+            FileWriter fileWriter = new FileWriter(caminhoArquivo, true);
+
+            BufferedWriter escritor = new BufferedWriter(fileWriter);
+
+            escritor.write(dominio);
+            escritor.newLine();
+            escritor.close();
+            System.out.println("Domínio adicionado à lista negra com sucesso!");
+
+        }catch(IOException erro){
+
+           System.out.println("Erro ao guardar o domínio: " + erro.getMessage());
+        }
+    }
+
+    static void removerDominio(){
+    String caminhoArquivo = "dados/dominios_negros.txt";
+    Scanner input = new Scanner(System.in);
+
+    // 1. Ler todos os domínios para a ArrayList
+    ArrayList<String> dominios = new ArrayList<>();
+
+    try {
+        BufferedReader leitor = new BufferedReader(
+            new FileReader(caminhoArquivo)
+        );
+        String linha;
+        while ((linha = leitor.readLine()) != null) {
+            dominios.add(linha);
+        }
+        leitor.close();
+
+    } catch (IOException erro) {
+        System.out.println("Erro ao ler o ficheiro: " + erro.getMessage());
+        return;
+    }
+
+    // 2. Mostrar a lista
+    System.out.println("\n==============================================");
+    System.out.println("      KEBA - REMOVER DOMÍNIO DA LISTA NEGRA   ");
+    System.out.println("==============================================");
+
+    for (int i = 0; i < dominios.size(); i++) {
+        System.out.println((i + 1) + ". " + dominios.get(i));
+    }
+
+    // 3. Utilizador escolhe o número
+    System.out.print("\nDigite o número do domínio a remover (0 para cancelar): ");
+    int escolha = input.nextInt();
+
+    if (escolha == 0) {
+        System.out.println("Operação cancelada.");
+        return;
+    }
+
+    if (escolha < 1 || escolha > dominios.size()) {
+        System.out.println("Número inválido!");
+        return;
+    }
+
+    // 4. Remover da ArrayList
+    String removido = dominios.get(escolha - 1);
+    dominios.remove(escolha - 1);
+
+    // 5. Escrever tudo de volta no ficheiro
+    try {
+        BufferedWriter escritor = new BufferedWriter(
+            new FileWriter(caminhoArquivo, false)
+        );
+        for (String d : dominios) {
+            escritor.write(d);
+            escritor.newLine();
+        }
+        escritor.close();
+        System.out.println("Domínio '" + removido + "' removido com sucesso!");
+
+    } catch (IOException erro) {
+        System.out.println("Erro ao guardar: " + erro.getMessage());
+    }
 }
+
+    static void gerirDominios(){
+       Scanner input = new Scanner(System.in);
+       int opcao = 0;
+       do{
+            System.out.println(" ");
+            System.out.println("==============================================");
+            System.out.println("KEBA - LISTA NEGRA DE DOMÍNIOS");
+            System.out.println("==============================================");
+            System.out.println("1. Listar domínios");
+            System.out.println("2. Adicionar domínio");
+            System.out.println("3. Remover domínio");
+            System.out.println("0. Voltar ao menu principal");
+            System.out.println("==============================================");
+            System.out.print("Escolha uma opção: ");
+            opcao = input.nextInt();
+
+            switch(opcao)
+                {
+                    case 1: listarDominios(); break;
+                    case 2: adicionarDominio(); break;
+                    case 3: removerDominio(); break;
+                    case 0: /* Voltar ao menu principal();*/break;
+                    default:
+                        System.out.println("Valor Invalido");
+                    break;
+                }
+            }while(opcao !=0);
+    }
+}
+
