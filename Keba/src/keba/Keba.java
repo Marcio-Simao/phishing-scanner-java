@@ -93,7 +93,13 @@ public class Keba {
                 case 4: GestorFicheiros.gerirDominios(); break;
                 case 5: /* gerarRelatorio(); */ break;
                 case 6: /* verEstatisticas(); */break;
-                case 0: /* sair(); */break;
+                case 0:
+                    System.out.println("\n==============================================");
+                    System.out.println("   A encerrar o KEBA - Scanner de Phishing... ");
+                    System.out.println("   Todos os dados foram guardados.            ");
+                    System.out.println("   Até à próxima!                              ");
+                    System.out.println("==============================================");
+                    break;
                 default:
                     System.out.println("Valor Invalido");
                 break;
