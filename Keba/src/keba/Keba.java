@@ -5,11 +5,114 @@ import java.util.ArrayList;
 
 public class Keba {
 
-    static void verHistorico() {
-        System.out.println("Ver Historico");
+    static void verEstatisticas(ArrayList<Email> emails) {
+        if (emails == null || emails.isEmpty()) {
+            System.out.println("Nenhuma analise realizada ainda. Execute a opcao 1 primeiro.");
+            return;
+        }
+
+        System.out.println("\n==============================================");
+        System.out.println("      KEBA - ESTATISTICAS GERAIS              ");
+        System.out.println("==============================================");
+
+        int total = emails.size();
+        int suspeitos = 0;
+        int seguros = 0;
+
+        // contar suspeitos e seguros
+        for (Email email : emails) {
+            if (email.isSuspeito()) {
+                suspeitos++;
+            } else {
+                seguros++;
+            }
+        }
+
+        double percSuspeitos = (suspeitos * 100.0) / total;
+        double percSeguros = (seguros * 100.0) / total;
+
+        System.out.println("Total de emails analisados: " + total);
+        System.out.println("Emails suspeitos: " + suspeitos + " (" + String.format("%.1f", percSuspeitos) + "%)");
+        System.out.println("Emails seguros:   " + seguros + " (" + String.format("%.1f", percSeguros) + "%)");
+
+        // contar palavras mais frequentes
+        ArrayList<String> todasPalavras = new ArrayList<>();
+        for (Email email : emails) {
+            todasPalavras.addAll(email.getPalavrasEncontradas());
+        }
+
+        System.out.println("\nPalavras suspeitas mais encontradas:");
+        if (todasPalavras.isEmpty()) {
+            System.out.println("Nenhuma palavra suspeita encontrada.");
+        } else {
+            // contar ocorrencias de cada palavra
+            ArrayList<String> contadas = new ArrayList<>();
+            ArrayList<Integer> contagens = new ArrayList<>();
+
+            for (String palavra : todasPalavras) {
+                if (contadas.contains(palavra)) {
+                    int idx = contadas.indexOf(palavra);
+                    contagens.set(idx, contagens.get(idx) + 1);
+                } else {
+                    contadas.add(palavra);
+                    contagens.add(1);
+                }
+            }
+
+            // mostrar top 3
+            int mostrar = Math.min(3, contadas.size());
+            for (int i = 0; i < mostrar; i++) {
+                int maxIdx = 0;
+                for (int j = 1; j < contagens.size(); j++) {
+                    if (contagens.get(j) > contagens.get(maxIdx)) {
+                        maxIdx = j;
+                    }
+                }
+                System.out.println((i + 1) + ". " + contadas.get(maxIdx)
+                        + " (" + contagens.get(maxIdx) + " vez(es))");
+                contagens.set(maxIdx, -1);
+            }
+        }
+
+        System.out.println("==============================================\n");
     }
 
-    static void analisarFicheiro() {
+    static void gerarRelatorio(ArrayList<Email> emails) {
+        if (emails == null || emails.isEmpty()) {
+            System.out.println("Nenhuma analise realizada ainda. Execute a opcao 1 primeiro.");
+            return;
+        }
+
+        StringBuilder conteudo = new StringBuilder();
+        conteudo.append("KEBA - RELATORIO DE ANALISE\n");
+        conteudo.append("==============================================\n");
+
+        int suspeitos = 0, seguros = 0;
+        for (Email email : emails) {
+            conteudo.append("\nDe: ").append(email.getRemetente());
+            conteudo.append("\nAssunto: ").append(email.getAssunto());
+            conteudo.append("\nPontuacao: ").append(email.getPontuacaoRisco());
+            conteudo.append("\nEstado: ").append(email.isSuspeito() ? "SUSPEITO" : "SEGURO");
+            conteudo.append("\n----------------------------------------------");
+            if (email.isSuspeito()) {
+                suspeitos++;
+            } else {
+                seguros++;
+            }
+        }
+
+        conteudo.append("\n\nTOTAL: ").append(emails.size());
+        conteudo.append("\nSUSPEITOS: ").append(suspeitos);
+        conteudo.append("\nSEGUROS: ").append(seguros);
+
+        GestorFicheiros.exportarRelatorio(conteudo.toString());
+    }
+
+    static void verHistorico() {
+        GestorFicheiros.lerHistorico();
+    }
+
+    static ArrayList<Email> analisarFicheiro() {
         Scanner input = new Scanner(System.in);
 
         String caminho = "dados/emails_entrada.txt";
@@ -19,7 +122,7 @@ public class Keba {
 
         if (emails.isEmpty()) {
             System.out.println("Nenhum email encontrado no ficheiro!");
-            return;
+            return new ArrayList<>();
         }
 
         // 2. Carregar palavras suspeitas e dominios negros
@@ -59,12 +162,15 @@ public class Keba {
         System.out.println("EMAILS SUSPEITOS: " + totalSuspeitos);
         System.out.println("EMAILS SEGUROS: " + totalSeguros);
         System.out.println("==============================================\n");
+
+        return emails;
     }
 
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner input = new Scanner(System.in);
         int opcao = 0;
+        ArrayList<Email> ultimaAnalise = new ArrayList<>();
 
         do {
             System.out.println(" ");
@@ -85,7 +191,7 @@ public class Keba {
 
             switch (opcao) {
                 case 1:
-                    analisarFicheiro();
+                    ultimaAnalise = analisarFicheiro();
                     break;
                 case 2:
                     verHistorico();
@@ -97,9 +203,10 @@ public class Keba {
                     GestorFicheiros.gerirDominios();
                     break;
                 case 5:
-                    /* gerarRelatorio(); */ break;
+                    gerarRelatorio(ultimaAnalise);
+                    break;
                 case 6:
-                    /* verEstatisticas(); */
+                    verEstatisticas(ultimaAnalise);
                     break;
                 case 0:
                     System.out.println("\n==============================================");
