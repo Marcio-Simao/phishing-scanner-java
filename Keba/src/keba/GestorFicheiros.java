@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package keba;
+
 import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
@@ -10,138 +11,141 @@ import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+
 /**
  *
  * @author LENOVO
  */
 public class GestorFicheiros {
+
     //método listar palavras
-    static void listarPalavras(){
+    static void listarPalavras() {
         String caminhoArquivo = "dados/palavras_suspeitas.txt";
-        
+
         System.out.println("\n==============================================");
         System.out.println("      KEBA - LISTA DE PALAVRAS SUSPEITAS      ");
         System.out.println("==============================================");
-        
-        try{
+
+        try {
             FileReader fileReader = new FileReader(caminhoArquivo);
             BufferedReader leitor = new BufferedReader(fileReader);
             String linha;
             int contador = 1;
-           
-            while((linha = leitor.readLine()) != null){
+
+            while ((linha = leitor.readLine()) != null) {
                 String[] partes = linha.split(";");
                 String palavra = partes[0];
-                String peso    = partes[1];
+                String peso = partes[1];
                 System.out.println(contador + ". " + palavra + " (peso: " + peso + ")");
                 contador++;
             }
             leitor.close();
-            
-        }catch(IOException erro){
-            
-           System.out.println("Erro ao guardar a palavra: " + erro.getMessage()); 
+
+        } catch (IOException erro) {
+
+            System.out.println("Erro ao guardar a palavra: " + erro.getMessage());
         }
-        
+
     }
-    
-    static void adicionarPalavra(){
-        
+
+    static void adicionarPalavra() {
+
         Scanner input = new Scanner(System.in);
         String caminhoArquivo = "dados/palavras_suspeitas.txt";
-        
+
         System.out.print("Digite a palavra suspeita: ");
         String palavra = input.nextLine();
-        
+
         System.out.print("Digite o peso (ex: 20, 30, 40): ");
         int peso = input.nextInt();
-        
-        try{
+
+        try {
             FileWriter fileWriter = new FileWriter(caminhoArquivo, true);
-            
+
             BufferedWriter escritor = new BufferedWriter(fileWriter);
-            
+
             escritor.write(palavra + ";" + peso);
             escritor.newLine();
             escritor.close();
             System.out.println("Palavra adicionada com sucesso!");
-            
-        }catch(IOException erro){
-            
-           System.out.println("Erro ao guardar a palavra: " + erro.getMessage()); 
+
+        } catch (IOException erro) {
+
+            System.out.println("Erro ao guardar a palavra: " + erro.getMessage());
         }
-    }   
-    static void removerPalavra(){
-    String caminhoArquivo = "dados/palavras_suspeitas.txt";
-    Scanner input = new Scanner(System.in);
-    
-    // 1. Ler todas as palavras para a ArrayList
-    ArrayList<String> palavras = new ArrayList<>();
-    
-    try {
-        BufferedReader leitor = new BufferedReader(
-            new FileReader(caminhoArquivo)
-        );
-        String linha;
-        while ((linha = leitor.readLine()) != null) {
-            palavras.add(linha);
+    }
+
+    static void removerPalavra() {
+        String caminhoArquivo = "dados/palavras_suspeitas.txt";
+        Scanner input = new Scanner(System.in);
+
+        // 1. Ler todas as palavras para a ArrayList
+        ArrayList<String> palavras = new ArrayList<>();
+
+        try {
+            BufferedReader leitor = new BufferedReader(
+                    new FileReader(caminhoArquivo)
+            );
+            String linha;
+            while ((linha = leitor.readLine()) != null) {
+                palavras.add(linha);
+            }
+            leitor.close();
+
+        } catch (IOException erro) {
+            System.out.println("Erro ao ler o ficheiro: " + erro.getMessage());
+            return; // sai do método se não conseguiu ler
         }
-        leitor.close();
-        
-    } catch (IOException erro) {
-        System.out.println("Erro ao ler o ficheiro: " + erro.getMessage());
-        return; // sai do método se não conseguiu ler
-    }
-    
-    // 2. Mostrar a lista
-    System.out.println("\n==============================================");
-    System.out.println("      KEBA - REMOVER PALAVRA SUSPEITA         ");
-    System.out.println("==============================================");
-    
-    for (int i = 0; i < palavras.size(); i++) {
-        String[] partes = palavras.get(i).split(";");
-        System.out.println((i + 1) + ". " + partes[0] + " (peso: " + partes[1] + ")");
-    }
-    
-    // 3. Utilizador escolhe o número
-    System.out.print("\nDigite o número da palavra a remover (0 para cancelar): ");
-    int escolha = input.nextInt();
-    
-    if (escolha == 0) {
-        System.out.println("Operação cancelada.");
-        return;
-    }
-    
-    if (escolha < 1 || escolha > palavras.size()) {
-        System.out.println("Número inválido!");
-        return;
-    }
-    
-    // 4. Remover da ArrayList
-    String removida = palavras.get(escolha - 1).split(";")[0];
-    palavras.remove(escolha - 1);
-    
-    // 5. Escrever tudo de volta no ficheiro
-    try {
-        BufferedWriter escritor = new BufferedWriter(
-            new FileWriter(caminhoArquivo, false) // false = apaga e reescreve
-        );
-        for (String p : palavras) {
-            escritor.write(p);
-            escritor.newLine();
+
+        // 2. Mostrar a lista
+        System.out.println("\n==============================================");
+        System.out.println("      KEBA - REMOVER PALAVRA SUSPEITA         ");
+        System.out.println("==============================================");
+
+        for (int i = 0; i < palavras.size(); i++) {
+            String[] partes = palavras.get(i).split(";");
+            System.out.println((i + 1) + ". " + partes[0] + " (peso: " + partes[1] + ")");
         }
-        escritor.close();
-        System.out.println("Palavra '" + removida + "' removida com sucesso!");
-        
-    } catch (IOException erro) {
-        System.out.println("Erro ao guardar: " + erro.getMessage());
+
+        // 3. Utilizador escolhe o número
+        System.out.print("\nDigite o número da palavra a remover (0 para cancelar): ");
+        int escolha = input.nextInt();
+
+        if (escolha == 0) {
+            System.out.println("Operação cancelada.");
+            return;
+        }
+
+        if (escolha < 1 || escolha > palavras.size()) {
+            System.out.println("Número inválido!");
+            return;
+        }
+
+        // 4. Remover da ArrayList
+        String removida = palavras.get(escolha - 1).split(";")[0];
+        palavras.remove(escolha - 1);
+
+        // 5. Escrever tudo de volta no ficheiro
+        try {
+            BufferedWriter escritor = new BufferedWriter(
+                    new FileWriter(caminhoArquivo, false) // false = apaga e reescreve
+            );
+            for (String p : palavras) {
+                escritor.write(p);
+                escritor.newLine();
+            }
+            escritor.close();
+            System.out.println("Palavra '" + removida + "' removida com sucesso!");
+
+        } catch (IOException erro) {
+            System.out.println("Erro ao guardar: " + erro.getMessage());
+        }
     }
-}
-    
-    static void gerirPalavras(){ 
-       Scanner input = new Scanner(System.in);
-       int opcao = 0;
-       do{
+
+    static void gerirPalavras() {
+        Scanner input = new Scanner(System.in);
+        int opcao = 0;
+        do {
             System.out.println(" ");
             System.out.println("==============================================");
             System.out.println("KEBA - PALAVRAS SUSPEITAS");
@@ -153,26 +157,33 @@ public class GestorFicheiros {
             System.out.println("==============================================");
             System.out.print("Escolha uma opção: ");
             opcao = input.nextInt();
-       
-            switch(opcao)
-                {
-                    case 1: listarPalavras(); break;
-                    case 2: adicionarPalavra(); break;
-                    case 3: removerPalavra(); break;
-                    case 0: /* Voltar ao menu principal();*/break;
-                    default:
-                        System.out.println("Valor Invalido");
+
+            switch (opcao) {
+                case 1:
+                    listarPalavras();
                     break;
-                }
-            }while(opcao !=0);  
+                case 2:
+                    adicionarPalavra();
+                    break;
+                case 3:
+                    removerPalavra();
+                    break;
+                case 0:
+                    /* Voltar ao menu principal();*/
+                    break;
+                default:
+                    System.out.println("Valor Invalido");
+                    break;
+            }
+        } while (opcao != 0);
     }
-    
-   static ArrayList<Email> lerEmails(String caminho) {
+
+    static ArrayList<Email> lerEmails(String caminho) {
         ArrayList<Email> emails = new ArrayList<>();
 
         try {
             BufferedReader leitor = new BufferedReader(
-                new FileReader(caminho)
+                    new FileReader(caminho)
             );
 
             String linha;
@@ -183,8 +194,10 @@ public class GestorFicheiros {
             while ((linha = leitor.readLine()) != null) {
 
                 if (linha.equals("---EMAIL---")) {
-                    remetente = ""; destinatario = "";
-                    assunto = ""; data = "";
+                    remetente = "";
+                    destinatario = "";
+                    assunto = "";
+                    data = "";
                     corpo = new StringBuilder();
                     lendoCorpo = false;
 
@@ -204,7 +217,7 @@ public class GestorFicheiros {
                     lendoCorpo = true;
 
                 } else if (linha.equals("---FIM---")) {
-                    Email email = new Email(remetente, destinatario,assunto, corpo.toString().trim(), data);
+                    Email email = new Email(remetente, destinatario, assunto, corpo.toString().trim(), data);
                     emails.add(email);
                     lendoCorpo = false;
 
@@ -222,37 +235,36 @@ public class GestorFicheiros {
 
         return emails;
     }
-            /*M__Dominios Negros__J*/
-    
 
+    /*M__Dominios Negros__J*/
     //método listar domínios
-    static void listarDominios(){
+    static void listarDominios() {
         String caminhoArquivo = "dados/dominios_negros.txt";
 
         System.out.println("\n==============================================");
         System.out.println("      KEBA - LISTA NEGRA DE DOMÍNIOS          ");
         System.out.println("==============================================");
 
-        try{
+        try {
             FileReader fileReader = new FileReader(caminhoArquivo);
             BufferedReader leitor = new BufferedReader(fileReader);
             String linha;
             int contador = 1;
 
-            while((linha = leitor.readLine()) != null){
+            while ((linha = leitor.readLine()) != null) {
                 System.out.println(contador + ". " + linha);
                 contador++;
             }
             leitor.close();
 
-        }catch(IOException erro){
+        } catch (IOException erro) {
 
-           System.out.println("Erro ao ler a lista de domínios: " + erro.getMessage());
+            System.out.println("Erro ao ler a lista de domínios: " + erro.getMessage());
         }
 
     }
 
-    static void adicionarDominio(){
+    static void adicionarDominio() {
 
         Scanner input = new Scanner(System.in);
         String caminhoArquivo = "dados/dominios_negros.txt";
@@ -260,7 +272,7 @@ public class GestorFicheiros {
         System.out.print("Digite o domínio a bloquear (ex: dominiofalso.com): ");
         String dominio = input.nextLine();
 
-        try{
+        try {
             FileWriter fileWriter = new FileWriter(caminhoArquivo, true);
 
             BufferedWriter escritor = new BufferedWriter(fileWriter);
@@ -270,82 +282,82 @@ public class GestorFicheiros {
             escritor.close();
             System.out.println("Domínio adicionado à lista negra com sucesso!");
 
-        }catch(IOException erro){
+        } catch (IOException erro) {
 
-           System.out.println("Erro ao guardar o domínio: " + erro.getMessage());
+            System.out.println("Erro ao guardar o domínio: " + erro.getMessage());
         }
     }
 
-    static void removerDominio(){
-    String caminhoArquivo = "dados/dominios_negros.txt";
-    Scanner input = new Scanner(System.in);
+    static void removerDominio() {
+        String caminhoArquivo = "dados/dominios_negros.txt";
+        Scanner input = new Scanner(System.in);
 
-    // 1. Ler todos os domínios para a ArrayList
-    ArrayList<String> dominios = new ArrayList<>();
+        // 1. Ler todos os domínios para a ArrayList
+        ArrayList<String> dominios = new ArrayList<>();
 
-    try {
-        BufferedReader leitor = new BufferedReader(
-            new FileReader(caminhoArquivo)
-        );
-        String linha;
-        while ((linha = leitor.readLine()) != null) {
-            dominios.add(linha);
+        try {
+            BufferedReader leitor = new BufferedReader(
+                    new FileReader(caminhoArquivo)
+            );
+            String linha;
+            while ((linha = leitor.readLine()) != null) {
+                dominios.add(linha);
+            }
+            leitor.close();
+
+        } catch (IOException erro) {
+            System.out.println("Erro ao ler o ficheiro: " + erro.getMessage());
+            return;
         }
-        leitor.close();
 
-    } catch (IOException erro) {
-        System.out.println("Erro ao ler o ficheiro: " + erro.getMessage());
-        return;
-    }
+        // 2. Mostrar a lista
+        System.out.println("\n==============================================");
+        System.out.println("      KEBA - REMOVER DOMÍNIO DA LISTA NEGRA   ");
+        System.out.println("==============================================");
 
-    // 2. Mostrar a lista
-    System.out.println("\n==============================================");
-    System.out.println("      KEBA - REMOVER DOMÍNIO DA LISTA NEGRA   ");
-    System.out.println("==============================================");
-
-    for (int i = 0; i < dominios.size(); i++) {
-        System.out.println((i + 1) + ". " + dominios.get(i));
-    }
-
-    // 3. Utilizador escolhe o número
-    System.out.print("\nDigite o número do domínio a remover (0 para cancelar): ");
-    int escolha = input.nextInt();
-
-    if (escolha == 0) {
-        System.out.println("Operação cancelada.");
-        return;
-    }
-
-    if (escolha < 1 || escolha > dominios.size()) {
-        System.out.println("Número inválido!");
-        return;
-    }
-
-    // 4. Remover da ArrayList
-    String removido = dominios.get(escolha - 1);
-    dominios.remove(escolha - 1);
-
-    // 5. Escrever tudo de volta no ficheiro
-    try {
-        BufferedWriter escritor = new BufferedWriter(
-            new FileWriter(caminhoArquivo, false)
-        );
-        for (String d : dominios) {
-            escritor.write(d);
-            escritor.newLine();
+        for (int i = 0; i < dominios.size(); i++) {
+            System.out.println((i + 1) + ". " + dominios.get(i));
         }
-        escritor.close();
-        System.out.println("Domínio '" + removido + "' removido com sucesso!");
 
-    } catch (IOException erro) {
-        System.out.println("Erro ao guardar: " + erro.getMessage());
+        // 3. Utilizador escolhe o número
+        System.out.print("\nDigite o número do domínio a remover (0 para cancelar): ");
+        int escolha = input.nextInt();
+
+        if (escolha == 0) {
+            System.out.println("Operação cancelada.");
+            return;
+        }
+
+        if (escolha < 1 || escolha > dominios.size()) {
+            System.out.println("Número inválido!");
+            return;
+        }
+
+        // 4. Remover da ArrayList
+        String removido = dominios.get(escolha - 1);
+        dominios.remove(escolha - 1);
+
+        // 5. Escrever tudo de volta no ficheiro
+        try {
+            BufferedWriter escritor = new BufferedWriter(
+                    new FileWriter(caminhoArquivo, false)
+            );
+            for (String d : dominios) {
+                escritor.write(d);
+                escritor.newLine();
+            }
+            escritor.close();
+            System.out.println("Domínio '" + removido + "' removido com sucesso!");
+
+        } catch (IOException erro) {
+            System.out.println("Erro ao guardar: " + erro.getMessage());
+        }
     }
-}
 
-    static void gerirDominios(){
-       Scanner input = new Scanner(System.in);
-       int opcao = 0;
-       do{
+    static void gerirDominios() {
+        Scanner input = new Scanner(System.in);
+        int opcao = 0;
+        do {
             System.out.println(" ");
             System.out.println("==============================================");
             System.out.println("KEBA - LISTA NEGRA DE DOMÍNIOS");
@@ -358,17 +370,85 @@ public class GestorFicheiros {
             System.out.print("Escolha uma opção: ");
             opcao = input.nextInt();
 
-            switch(opcao)
-                {
-                    case 1: listarDominios(); break;
-                    case 2: adicionarDominio(); break;
-                    case 3: removerDominio(); break;
-                    case 0: /* Voltar ao menu principal();*/break;
-                    default:
-                        System.out.println("Valor Invalido");
+            switch (opcao) {
+                case 1:
+                    listarDominios();
                     break;
-                }
-            }while(opcao !=0);
+                case 2:
+                    adicionarDominio();
+                    break;
+                case 3:
+                    removerDominio();
+                    break;
+                case 0:
+                    /* Voltar ao menu principal();*/
+                    break;
+                default:
+                    System.out.println("Valor Invalido");
+                    break;
+            }
+        } while (opcao != 0);
+    }
+
+    // guarda registo de analise no historico
+    static void guardarHistorico(RegistoAnalise registo) {
+        try {
+            BufferedWriter escritor = new BufferedWriter(
+                    new FileWriter("dados/historico.txt", true)
+            );
+            escritor.write(registo.toString());
+            escritor.newLine();
+            escritor.close();
+        } catch (IOException erro) {
+            System.out.println("Erro ao guardar historico: " + erro.getMessage());
+        }
+    }
+
+    // le e mostra o historico
+    static void lerHistorico() {
+        System.out.println("\n==============================================");
+        System.out.println("      KEBA - HISTORICO DE ANALISES            ");
+        System.out.println("==============================================");
+
+        try {
+            BufferedReader leitor = new BufferedReader(
+                    new FileReader("dados/historico.txt")
+            );
+            String linha;
+            int contador = 1;
+            while ((linha = leitor.readLine()) != null) {
+                System.out.println(contador + ". " + linha);
+                contador++;
+            }
+            leitor.close();
+
+            if (contador == 1) {
+                System.out.println("Nenhuma analise encontrada.");
+            }
+
+        } catch (IOException erro) {
+            System.out.println("Erro ao ler historico: " + erro.getMessage());
+        }
+        System.out.println("==============================================\n");
+    }
+
+    // exporta relatorio para ficheiro
+    static void exportarRelatorio(String conteudo) {
+        java.time.LocalDate hoje = java.time.LocalDate.now();
+        String nomeF = "dados/relatorios/relatorio_" + hoje + ".txt";
+
+        try {
+            new java.io.File("dados/relatorios").mkdirs();
+
+            BufferedWriter escritor = new BufferedWriter(
+                    new FileWriter(nomeF, false)
+            );
+            escritor.write(conteudo);
+            escritor.close();
+            System.out.println("Relatorio exportado para: " + nomeF);
+
+        } catch (IOException erro) {
+            System.out.println("Erro ao exportar relatorio: " + erro.getMessage());
+        }
     }
 }
-
