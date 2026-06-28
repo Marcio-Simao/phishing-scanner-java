@@ -1,0 +1,2 @@
+Data: 28/6/2026 20:45 | Ficheiro: dados/emails_entrada.txt | Total: 6 | Suspeitos: 4 | Seguros: 2
+Data: 28/6/2026 20:50 | Ficheiro: dados/emails_entrada.txt | Total: 6 | Suspeitos: 3 | Seguros: 3

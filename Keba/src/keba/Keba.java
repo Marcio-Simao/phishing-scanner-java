@@ -163,6 +163,25 @@ public class Keba {
         System.out.println("EMAILS SEGUROS: " + totalSeguros);
         System.out.println("==============================================\n");
 
+        // guardar no historico
+        java.time.LocalDateTime agora = java.time.LocalDateTime.now();
+        String dataHora = agora.getDayOfMonth() + "/"
+                + agora.getMonthValue() + "/"
+                + agora.getYear() + " "
+                + agora.getHour() + ":"
+                + agora.getMinute();
+
+        RegistoAnalise registo = new RegistoAnalise(
+                dataHora,
+                "dados/emails_entrada.txt",
+                emails.size(),
+                totalSuspeitos,
+                totalSeguros
+        );
+
+        GestorFicheiros.guardarHistorico(registo);
+        System.out.println("Analise guardada no historico!");
+
         return emails;
     }
 
