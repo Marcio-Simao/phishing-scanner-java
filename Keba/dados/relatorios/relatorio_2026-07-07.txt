@@ -1,0 +1,42 @@
+KEBA - RELATORIO DE ANALISE
+==============================================
+
+De: seguranca@paypal-verificacao.com
+Assunto: Urgente - A sua conta foi suspensa
+Pontuacao: 180
+Estado: SUSPEITO
+----------------------------------------------
+De: noreply@banco-angola-seguro.net
+Assunto: Actualize os seus dados bancarios agora
+Pontuacao: 285
+Estado: SUSPEITO
+----------------------------------------------
+De: premio@lotaria-mundial.com
+Assunto: Parabens voce ganhou um premio de 50000 USD
+Pontuacao: 215
+Estado: SUSPEITO
+----------------------------------------------
+De: mario.joao@gmail.com
+Assunto: Reuniao de grupo para o projecto
+Pontuacao: 0
+Estado: SEGURO
+----------------------------------------------
+De: professora.silvia@isptec.co.ao
+Assunto: Entrega do trabalho pratico - Parte 1
+Pontuacao: 0
+Estado: SEGURO
+----------------------------------------------
+De: sebastiao.luvumbo@gmail.com
+Assunto: Actualizacao do codigo no GitHub
+Pontuacao: 0
+Estado: SEGURO
+----------------------------------------------
+De: g-mano@gmail.com
+Assunto: Urgente - preciso da sua ajuda
+Pontuacao: 45
+Estado: SUSPEITO
+----------------------------------------------
+
+TOTAL: 7
+SUSPEITOS: 4
+SEGUROS: 3
