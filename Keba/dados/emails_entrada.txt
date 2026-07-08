@@ -67,3 +67,21 @@ Ola equipa, acabei de fazer push da classe RegistoAnalise.
 Podem fazer git pull para ter a versao mais recente.
 Qualquer duvida falem comigo.
 ---FIM---
+
+---EMAIL---
+DE: g-mano@gmail.com
+PARA: nerdsonly@gmail.com
+ASSUNTO: Urgente - preciso da sua ajuda
+DATA: 2026-07-07 15:13
+CORPO:
+precios gravar uma música nova com o nome password
+---FIM---
+
+---EMAIL---
+DE: banana@gmail.com
+PARA: cana@gmail.com
+ASSUNTO: frutas novas
+DATA: 2026-07-07 15:13
+CORPO:
+amanhã pegamos frutas novas
+---FIM---

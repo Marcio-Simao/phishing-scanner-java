@@ -1,2 +1,12 @@
 Data: 28/6/2026 20:45 | Ficheiro: dados/emails_entrada.txt | Total: 6 | Suspeitos: 4 | Seguros: 2
 Data: 28/6/2026 20:50 | Ficheiro: dados/emails_entrada.txt | Total: 6 | Suspeitos: 3 | Seguros: 3
+Data: 7/7/2026 9:52 | Ficheiro: dados/emails_entrada.txt | Total: 6 | Suspeitos: 3 | Seguros: 3
+Data: 7/7/2026 15:9 | Ficheiro: dados/emails_entrada.txt | Total: 6 | Suspeitos: 3 | Seguros: 3
+Data: 7/7/2026 15:16 | Ficheiro: dados/emails_entrada.txt | Total: 7 | Suspeitos: 4 | Seguros: 3
+Data: 8/7/2026 6:11 | Ficheiro: dados/emails_entrada.txt | Total: 8 | Suspeitos: 4 | Seguros: 4
+Data: 8/7/2026 6:12 | Ficheiro: dados/emails_entrada.txt | Total: 8 | Suspeitos: 4 | Seguros: 4
+Data: 8/7/2026 6:13 | Ficheiro: dados/emails_entrada.txt | Total: 7 | Suspeitos: 4 | Seguros: 3
+Data: 8/7/2026 6:17 | Ficheiro: dados/emails_entrada.txt | Total: 8 | Suspeitos: 4 | Seguros: 4
+Data: 8/7/2026 6:17 | Ficheiro: dados/emails_entrada.txt | Total: 8 | Suspeitos: 4 | Seguros: 4
+Data: 8/7/2026 6:18 | Ficheiro: dados/emails_entrada.txt | Total: 8 | Suspeitos: 4 | Seguros: 4
+Data: 8/7/2026 6:19 | Ficheiro: dados/emails_entrada.txt | Total: 8 | Suspeitos: 4 | Seguros: 4
